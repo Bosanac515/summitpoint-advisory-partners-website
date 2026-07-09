@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SummitPoint Advisors — Life Science, Technology & Finance Consulting and Assurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0C2321;
+  --pine:#123B37;
+  --paper:#F4F7F5;
+  --card:#FFFFFF;
+  --glacier:#6FA8A0;
+  --glacier-soft:#DCE9E6;
+  --amber:#E0A63E;
+  --slate:#40534F;
+  --line:#CBD9D5;
+  --radius:10px;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  font-size:16.5px;
+  -webkit-font-smoothing:antialiased;
+}
+.display{
+  font-family:'Archivo',sans-serif;
+  font-variation-settings:'wdth' 118;
+  font-weight:750;
+  letter-spacing:-0.015em;
+  line-height:1.04;
+}
+.mono{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
+
+/* ---------- Nav ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(244,247,245,.88);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{flex:none}
+.brand-name{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 110;font-weight:700;font-size:1.05rem;letter-spacing:.01em}
+.brand-name span{color:var(--glacier)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:.92rem;font-weight:500;color:var(--slate);transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+.btn{
+  display:inline-block;
+  background:var(--ink);color:#fff;
+  padding:11px 22px;border-radius:999px;
+  font-weight:600;font-size:.92rem;
+  transition:background .15s, transform .15s;
+  border:none;cursor:pointer;
+}
+.btn:hover{background:var(--pine);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.light:hover{background:var(--glacier-soft)}
+
+/* ---------- Hero ---------- */
+header.hero{
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.hero-topo{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  pointer-events:none;
+}
+.hero-inner{
+  position:relative;
+  padding:110px 0 120px;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  color:var(--pine);
+  margin-bottom:26px;
+}
+.eyebrow::before{
+  content:"";width:9px;height:9px;
+  background:var(--amber);
+  clip-path:polygon(50% 0,100% 100%,0 100%);
+  display:inline-block;
+}
+h1{
+  font-size:clamp(2.6rem,5.6vw,4.4rem);
+  max-width:15ch;
+  margin-bottom:26px;
+}
+h1 em{font-style:normal;color:var(--glacier)}
+.hero-sub{
+  max-width:54ch;font-size:1.14rem;color:var(--slate);
+  margin-bottom:38px;
+}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{
+  margin-top:64px;
+  display:flex;gap:40px;flex-wrap:wrap;
+  color:var(--slate);
+}
+.hero-meta div strong{display:block;font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 115;font-weight:700;font-size:1.5rem;color:var(--ink)}
+.hero-meta div span{font-size:.85rem}
+
+/* ---------- Section scaffolding ---------- */
+section{padding:96px 0}
+.sec-head{margin-bottom:52px;max-width:760px}
+.sec-label{
+  display:flex;align-items:center;gap:12px;
+  color:var(--pine);margin-bottom:18px;
+}
+.sec-label::after{content:"";height:1px;width:56px;background:var(--glacier)}
+h2{font-size:clamp(1.9rem,3.4vw,2.7rem)}
+.sec-head p{margin-top:16px;color:var(--slate);font-size:1.05rem}
+
+/* ---------- Practices ---------- */
+.practices{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:34px 30px;
+  display:flex;flex-direction:column;gap:14px;
+  transition:transform .2s, box-shadow .2s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px -18px rgba(12,35,33,.35)}
+.card .icon{
+  width:46px;height:46px;border-radius:9px;
+  background:var(--ink);
+  display:grid;place-items:center;
+}
+.card h3{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 112;font-weight:700;font-size:1.28rem}
+.card p{color:var(--slate);font-size:.97rem}
+.card ul{list-style:none;margin-top:6px;display:flex;flex-direction:column;gap:8px}
+.card li{font-size:.92rem;color:var(--pine);padding-left:18px;position:relative}
+.card li::before{
+  content:"";position:absolute;left:0;top:.52em;
+  width:8px;height:8px;
+  background:var(--amber);
+  clip-path:polygon(50% 0,100% 100%,0 100%);
+}
+
+/* ---------- Services (consulting vs assurance) ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.panel{
+  border-radius:var(--radius);
+  padding:44px 40px;
+}
+.panel.consulting{background:var(--ink);color:#EDF4F2}
+.panel.assurance{background:var(--glacier-soft);border:1px solid var(--line)}
+.panel .mono{opacity:.75;margin-bottom:14px;display:block}
+.panel h3{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 114;font-weight:750;font-size:1.7rem;margin-bottom:14px}
+.panel p{font-size:.99rem;margin-bottom:22px}
+.panel.consulting p{color:#BCD3CE}
+.panel.assurance p{color:var(--slate)}
+.svc-list{list-style:none;display:grid;gap:12px}
+.svc-list li{
+  display:flex;gap:12px;align-items:baseline;
+  font-size:.95rem;font-weight:500;
+  padding-bottom:12px;
+}
+.panel.consulting .svc-list li{border-bottom:1px solid rgba(255,255,255,.12)}
+.panel.assurance .svc-list li{border-bottom:1px solid var(--line)}
+.svc-list li:last-child{border-bottom:none!important;padding-bottom:0}
+.svc-list .tick{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--amber);flex:none}
+
+/* ---------- Approach ---------- */
+.approach{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.step{
+  padding:32px 26px;background:var(--paper);
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.step:last-child{border-right:none}
+.step .elev{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;color:var(--glacier);display:block;margin-bottom:16px}
+.step h4{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 110;font-weight:700;font-size:1.08rem;margin-bottom:10px}
+.step p{font-size:.9rem;color:var(--slate)}
+
+/* ---------- Why / credibility ---------- */
+.why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
+.why-points{display:flex;flex-direction:column;gap:26px}
+.why-point{display:flex;gap:18px}
+.why-point .mark{
+  flex:none;width:34px;height:34px;border-radius:8px;
+  border:1.5px solid var(--glacier);
+  display:grid;place-items:center;
+  color:var(--pine);
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+}
+.why-point h4{font-size:1.05rem;margin-bottom:4px}
+.why-point p{font-size:.94rem;color:var(--slate)}
+blockquote{
+  background:var(--ink);color:#E8F1EF;
+  border-radius:var(--radius);
+  padding:40px 36px;
+  position:relative;
+}
+blockquote p{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 105;font-weight:550;font-size:1.22rem;line-height:1.45;margin-bottom:22px}
+blockquote footer{font-size:.85rem;color:#9FBDB7}
+blockquote footer strong{display:block;color:#fff;font-size:.92rem}
+
+/* ---------- CTA ---------- */
+.cta{
+  background:var(--pine);
+  color:#fff;
+  border-radius:16px;
+  padding:70px 60px;
+  display:flex;justify-content:space-between;align-items:center;gap:40px;
+  position:relative;overflow:hidden;
+}
+.cta h2{max-width:20ch;position:relative}
+.cta p{color:#BCD8D2;margin-top:12px;max-width:44ch;position:relative}
+.cta-actions{display:flex;gap:14px;flex-wrap:wrap;position:relative}
+.cta svg.topo{position:absolute;right:-40px;top:-40px;opacity:.16;pointer-events:none}
+
+/* ---------- Footer ---------- */
+footer.site{
+  padding:56px 0 40px;
+  border-top:1px solid var(--line);
+  color:var(--slate);font-size:.9rem;
+}
+.foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:36px}
+.foot-grid nav{position:static;background:none;border:none;backdrop-filter:none}
+.foot-links{display:flex;gap:26px;flex-wrap:wrap}
+.foot-links a:hover{color:var(--ink)}
+.legal{font-size:.8rem;color:#7C8F8B;border-top:1px solid var(--line);padding-top:22px}
+
+/* ---------- Motion ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .card:hover{transform:none}
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:960px){
+  .grid-3{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:none}
+  .step:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .why-grid{grid-template-columns:1fr}
+  .cta{flex-direction:column;align-items:flex-start;padding:50px 34px}
+  .nav-links{display:none}
+}
+@media (max-width:560px){
+  .steps{grid-template-columns:1fr}
+  .step{border-right:none;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:none}
+  section{padding:70px 0}
+  .hero-inner{padding:80px 0 90px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="SummitPoint Advisors home">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <path d="M2 26 L15 4 L28 26 Z" stroke="#0C2321" stroke-width="2" fill="none"/>
+        <path d="M15 4 L15 12" stroke="#0C2321" stroke-width="2"/>
+        <path d="M12 9 L15 4 L18 9" fill="#E0A63E"/>
+      </svg>
+      <span class="brand-name">SummitPoint<span>&nbsp;Advisors</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#practices">Industries</a>
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#why">Why us</a>
+      <a class="btn" href="#contact">Start a conversation</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg class="hero-topo" viewBox="0 0 1400 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#6FA8A0" stroke-opacity="0.22" stroke-width="1.4">
+      <path d="M-40 560 Q 300 470 560 500 T 1140 460 T 1460 500"/>
+      <path d="M-40 500 Q 320 400 580 435 T 1150 385 T 1460 430"/>
+      <path d="M-40 440 Q 340 330 600 370 T 1160 310 T 1460 360"/>
+      <path d="M60 380 Q 380 265 640 305 T 1170 240 T 1460 295"/>
+      <path d="M180 320 Q 430 205 690 245 T 1180 175 T 1460 230"/>
+      <path d="M320 260 Q 500 150 740 190 T 1190 115 T 1460 170"/>
+      <path d="M480 200 Q 590 100 800 140 T 1210 65 T 1460 115"/>
+      <path d="M660 145 Q 720 65 880 100 T 1240 25 T 1460 65"/>
+    </g>
+    <path d="M985 38 L995 55 L975 55 Z" fill="#E0A63E" opacity="0.9"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="eyebrow mono">Consulting &amp; Assurance · Life Sciences · Technology · Financial Services</span>
+    <h1 class="display reveal in">Clear counsel from the <em>highest vantage point.</em></h1>
+    <p class="hero-sub reveal in">SummitPoint Advisors helps regulated and high-growth organizations make confident decisions. We combine strategic consulting with independent assurance, so leadership teams can move fast and stand behind every number, control, and claim.</p>
+    <div class="hero-ctas reveal in">
+      <a class="btn" href="#contact">Talk to an advisor</a>
+      <a class="btn ghost" href="#services">Explore our services</a>
+    </div>
+    <div class="hero-meta reveal in">
+      <div><strong>3</strong><span>Focused industry practices</span></div>
+      <div><strong>200+</strong><span>Engagements delivered</span></div>
+      <div><strong>94%</strong><span>Clients who return within two years</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="practices" id="practices">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label mono">Elev. 01 · Industries</span>
+      <h2 class="display">Deep in three terrains. Not spread across all of them.</h2>
+      <p>Every practice is staffed by advisors who have worked inside the industry they serve. We know the regulators, the systems, and the pressure points, because we've sat on your side of the table.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 2h6M9 2v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V2" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="15" r="1.3" fill="#E0A63E"/><circle cx="13" cy="17" r="1" fill="#E0A63E"/></svg>
+        </div>
+        <h3>Life Sciences</h3>
+        <p>From clinical-stage biotech to commercial pharma and med-device, we help you satisfy regulators without slowing science.</p>
+        <ul>
+          <li>GxP compliance &amp; quality systems</li>
+          <li>Computer system validation (CSV/CSA)</li>
+          <li>Clinical trial vendor oversight</li>
+          <li>Pre-inspection readiness</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="4" width="16" height="11" rx="1.5" stroke="#fff" stroke-width="1.6"/><path d="M7 19h8M11 15v4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><path d="M7 11l2.5-2.5L11 10l3-3" stroke="#E0A63E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Technology</h3>
+        <p>SaaS, infrastructure, and data companies rely on us to prove trust to customers and scale controls without killing velocity.</p>
+        <ul>
+          <li>SOC 1 / SOC 2 readiness</li>
+          <li>ISO 27001 &amp; cloud security programs</li>
+          <li>AI governance &amp; model risk</li>
+          <li>Third-party risk management</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2l8 4v2H3V6l8-4Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M5 10v6M11 10v6M17 10v6M3 18h16" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="11" cy="5.5" r="1" fill="#E0A63E"/></svg>
+        </div>
+        <h3>Financial Services</h3>
+        <p>Banks, funds, fintechs, and insurers engage us to strengthen controls, satisfy examiners, and de-risk transformation.</p>
+        <ul>
+          <li>Internal audit co-sourcing</li>
+          <li>SOX &amp; ICFR programs</li>
+          <li>Regulatory remediation</li>
+          <li>Model validation &amp; risk analytics</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label mono">Elev. 02 · Services</span>
+      <h2 class="display">Two disciplines, one standard of rigor.</h2>
+      <p>Consulting to move you forward. Assurance to prove you're on solid ground. Many clients start with one and grow into both.</p>
+    </div>
+    <div class="split">
+      <div class="panel consulting reveal">
+        <span class="mono">Advisory</span>
+        <h3>Consulting</h3>
+        <p>Hands-on strategy and execution support for the decisions that carry the most risk and the most upside.</p>
+        <ul class="svc-list">
+          <li><span class="tick">01</span>Operating model &amp; process transformation</li>
+          <li><span class="tick">02</span>Risk, compliance &amp; regulatory strategy</li>
+          <li><span class="tick">03</span>Technology selection &amp; implementation oversight</li>
+          <li><span class="tick">04</span>M&amp;A diligence and integration support</li>
+          <li><span class="tick">05</span>Data governance &amp; analytics enablement</li>
+        </ul>
+      </div>
+      <div class="panel assurance reveal">
+        <span class="mono">Independent</span>
+        <h3>Assurance</h3>
+        <p>Objective examination and attestation that gives boards, customers, and regulators grounds for confidence.</p>
+        <ul class="svc-list">
+          <li><span class="tick">01</span>SOC 1, SOC 2 &amp; SOC 3 examinations</li>
+          <li><span class="tick">02</span>Internal audit outsourcing &amp; co-sourcing</li>
+          <li><span class="tick">03</span>ICFR / SOX testing &amp; certification support</li>
+          <li><span class="tick">04</span>Regulatory compliance attestations</li>
+          <li><span class="tick">05</span>Independent validation &amp; quality audits</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="approach" id="approach">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label mono">Elev. 03 · Approach</span>
+      <h2 class="display">The route to the summit, mapped in advance.</h2>
+      <p>Every engagement follows the same disciplined ascent, so you always know where you are, what comes next, and what it will take to get there.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <span class="elev">Base · Scope</span>
+        <h4>Establish the terrain</h4>
+        <p>We define objectives, boundaries, and success criteria with your team before any fieldwork begins. No scope creep, no surprises.</p>
+      </div>
+      <div class="step">
+        <span class="elev">Camp I · Assess</span>
+        <h4>Test the ground</h4>
+        <p>Evidence-based assessment of your current state: controls, processes, systems, and the gaps between where you are and where you need to be.</p>
+      </div>
+      <div class="step">
+        <span class="elev">Camp II · Execute</span>
+        <h4>Make the climb</h4>
+        <p>Remediation, implementation, or examination fieldwork, run by senior practitioners with weekly visibility into progress and findings.</p>
+      </div>
+      <div class="step">
+        <span class="elev">Summit · Report</span>
+        <h4>Plant the flag</h4>
+        <p>Clear deliverables written for the people who use them: boards, auditors, regulators, and customers. Then a plan to hold the gains.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap why-grid">
+    <div>
+      <div class="sec-head reveal" style="margin-bottom:38px">
+        <span class="sec-label mono">Elev. 04 · Why SummitPoint</span>
+        <h2 class="display">Senior people. Straight answers. No leverage-model theater.</h2>
+      </div>
+      <div class="why-points">
+        <div class="why-point reveal">
+          <div class="mark">A</div>
+          <div>
+            <h4>Partners do the work</h4>
+            <p>The people who pitch your engagement are the people who deliver it. Our average engagement team has 12+ years of relevant industry experience.</p>
+          </div>
+        </div>
+        <div class="why-point reveal">
+          <div class="mark">B</div>
+          <div>
+            <h4>Independence you can point to</h4>
+            <p>Our assurance practice operates with strict independence safeguards, so the opinion you receive holds up under scrutiny from regulators and customers alike.</p>
+          </div>
+        </div>
+        <div class="why-point reveal">
+          <div class="mark">C</div>
+          <div>
+            <h4>Fixed-fee clarity</h4>
+            <p>Most engagements are scoped and priced up front. You'll never discover the real cost of a project from an invoice.</p>
+          </div>
+        </div>
+        <div class="why-point reveal">
+          <div class="mark">D</div>
+          <div>
+            <h4>Built for regulated speed</h4>
+            <p>We design controls and programs that satisfy examiners without grinding your operations to a halt. Compliance should be an accelerant, not an anchor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <blockquote class="reveal">
+      <p>"SummitPoint took us from a failed SOC 2 readiness assessment to a clean Type II report in nine months, and our sales team hasn't stopped thanking them since."</p>
+      <footer>
+        <strong>Chief Information Security Officer</strong>
+        Series C healthcare data platform
+      </footer>
+    </blockquote>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      <svg class="topo" width="420" height="320" viewBox="0 0 420 320" aria-hidden="true">
+        <g fill="none" stroke="#fff" stroke-width="1.2">
+          <path d="M0 300 Q 120 240 210 260 T 420 240"/>
+          <path d="M0 250 Q 130 185 220 210 T 420 185"/>
+          <path d="M20 200 Q 145 130 235 160 T 420 130"/>
+          <path d="M60 150 Q 165 80 250 110 T 420 78"/>
+          <path d="M120 100 Q 190 35 270 60 T 420 30"/>
+        </g>
+      </svg>
+      <div>
+        <h2 class="display">Let's map your next ascent.</h2>
+        <p>Tell us where you're headed. We'll tell you honestly what it takes to get there, and whether we're the right team to guide the climb.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn light" href="mailto:hello@summitpointadvisors.com">hello@summitpointadvisors.com</a>
+        <a class="btn ghost" href="tel:+15555550190" style="border-color:#fff;color:#fff">+1 (555) 555-0190</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="brand">
+        <svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+          <path d="M2 26 L15 4 L28 26 Z" stroke="#0C2321" stroke-width="2" fill="none"/>
+          <path d="M12 9 L15 4 L18 9" fill="#E0A63E"/>
+        </svg>
+        <span class="brand-name" style="font-size:.98rem">SummitPoint<span>&nbsp;Advisors</span></span>
+      </div>
+      <div class="foot-links">
+        <a href="#practices">Industries</a>
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#why">Why us</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <p class="legal">© 2026 SummitPoint Advisors LLC. Consulting and assurance services for life sciences, technology, and financial services organizations. Assurance engagements are performed in accordance with applicable professional standards and independence requirements.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal:not(.in)');
+  if (reduced || !('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold: .12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
